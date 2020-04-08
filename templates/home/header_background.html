@@ -1,0 +1,31 @@
+{% load static wagtailcore_tags wagtailimages_tags %}
+{% image page.background_image original as background %}
+<div id="background" class="col-xl-12 col-lg-12 h-50" style="background-image:url({{ background.url }})">
+<div class="card h-100">
+<div class="search-overlay mt-2 mb-2 ml-2 mr-2">
+<div class="solid col-md-10 col-lg-8 col-xl-10 mx-auto">
+
+<form id="altSearch" name="search" method="get" action="https://pent.ent.sirsidynix.net/client/en_GB/home/search/results?te=ILS">
+<div class="form-row">
+<div class="col-12 col-md-9 mb-2 mb-md-0">
+<input type="hidden" name="ln" value="en_US" />
+<input id="altSearchInput" class="form-control form-control-lg"  maxlength="256" name="q" {% if search_query %} value="{{ search_query }}"{% endif %} type="text" accesskey="s"  placeholder="Search The Collection" autofocus />
+<div class="below-search-link mt-1">{{ page.searchBoxTextArea | richtext }}</div>
+
+</div><!--close column 12-->
+<div class="col-12 col-md-3">
+<button class="form-submit btn btn-block btn-lg btn-blue" title="Search" type="submit" value="Search">Search</button>
+<select id="searchType" class="homepage-search">
+     <option value="catalogue" name="catalogue">Catalogue</option>
+     <option value="website" name="website">Website</option>
+</select>
+
+</div><!--close button div-->
+</div><!--form row-->
+</form>
+
+
+</div><!--search -->
+</div><!--overlay-->
+</div><!--card-->
+</div> <!--background-->

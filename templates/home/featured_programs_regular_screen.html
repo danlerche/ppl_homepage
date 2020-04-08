@@ -1,0 +1,19 @@
+ {% load static wagtailcore_tags wagtailimages_tags %}
+    <div id="feature-programs-horizontal" class="MultiCarousel feature d-lg-none" data-items="1,2,3,4" data-slide="1" id="MultiCarousel"  data-interval="1000"><!--d-lg-none-->
+      <div class="header">
+        <h4 class="mt-2">Featured Programs</h4>
+      </div>
+            <div class="MultiCarousel-inner">
+              {% for program_slider in page.program_slider.all %}
+                <div class="card item">
+                    <div class="card-body pad15">
+                        <a href="{{ program_slider.program_slider_link.url }}" data-toggle="tooltip" data-placement="bottom">{% image program_slider.program_slider_image class="img-fluid" fill-200x140 %}</a>
+                    </div>
+                 <p class="card-title"><a href="{{ program_slider.program_slider_link.url }}">{{ program_slider.program_slider_link }}</a></p>
+                </div>
+                {% endfor %}
+
+            </div>
+            <button class="btn btn-primary leftLst"><</button>
+            <button class="btn btn-primary rightLst">></button>
+    </div>

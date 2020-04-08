@@ -1,0 +1,34 @@
+{% load static wagtailcore_tags wagtailimages_tags joyous_tags joyous_additions %}
+
+<div id="feature-background" class="col-xl-12 h-50 mt-2">
+<div class="row">
+<div class="feature upcoming-events col-xl-4 col-lg-4 h-100">
+<div class="card">
+<h4 class="card-header mt-2">Upcoming Events</h4>
+ <div class="card-body">
+{% event_highlights %}
+ </div><!--card body-->
+ </div>
+ </div>
+<div class="feature col-xl-4 col-lg-4">
+<div class="card">
+<h4 class="card-header mt-2">{% if page.feature_one_page == None %} {{ page.feature_one_doc }} {% else %} {{page.feature_one_page}} {% endif %}</h4>
+<div class="card-body">
+<a href="{% if page.feature_one_page == None %} {{ page.feature_one_doc.url }} {% else %} {{page.feature_one_page.url}} {% endif %}">{% image page.feature_one_image class="img-fluid" fill-520x320 %}</a>
+<p class="feature-text card-text">{{ page.feature_one_text }}</p>
+<a class="btn btn-primary btn-feature" href="{% if page.feature_one_page == None %} {{ page.feature_one_doc.url }} {% else %} {{page.feature_one_page.url}} {% endif %}">More ...</a>
+</div><!--card body-->
+</div>
+</div>
+<div class="feature col-xl-4 col-lg-4">
+<div class="card">
+<h4 class="card-header mt-2">{% if page.feature_two_page == None %} {{ page.feature_two_doc }} {% else %} {{page.feature_two_page}} {% endif %}</h4>
+<div class="card-body">
+<a href="{% if page.feature_two_page == None %} {{ page.feature_two_doc.url }} {% else %} {{page.feature_two_page.url}} {% endif %}">{% image page.feature_two_image class="img-fluid" fill-520x320 %}</a>
+<p class="feature-text card-text">{{ page.feature_two_text }}</p>
+<a class="btn btn-primary btn-feature" href="{% if page.feature_two_page == None %} {{ page.feature_two_doc.url }} {% else %} {{page.feature_two_page.url}} {% endif %}">More ...</a>
+</div><!--card body-->
+</div>
+</div>
+</div><!--row-->
+</div><!-- bottom feature color -->

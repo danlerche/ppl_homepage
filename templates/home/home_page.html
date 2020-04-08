@@ -2,96 +2,50 @@
 {% load static wagtailcore_tags wagtailimages_tags joyous_tags joyous_additions %}
 {% block content %}
 
-<section class="content" id="background">
-<div class="overlay mt-2 mb-2 ml-2 mr-2">
-
-  <!--https://stackoverflow.com/questions/5135019/css-opacity-only-to-background-color-not-the-text-on-it-->
-
-<div class="solid col-md-10 col-lg-8 col-xl-7 mx-auto">
-
-<form name="search" method="get" action="https://pent.ent.sirsidynix.net/client/en_GB/home/search/results?te=ILS">
-<div class="form-row">
-<div class="col-12 col-md-9 mb-2 mb-md-0">
-<input type="hidden" name="ln" value="en_US" />
-<input class="form-control form-control-lg" titljoyous_tagse="Search For:" maxlength="256" name="q" value="" type="text" accesskey="s"  placeholder="Search The Collection" />
-
-<div class="below-search-link mt-1">{{ page.searchBoxTextArea | richtext }}</div>
-
-</div><!--close column 12-->
-<div class="col-12 col-md-3">
-<button class="form-submit btn btn-block btn-lg btn-blue" title="Search" type="submit" value="Search">Search</button>
-<select id="search-type">
-     <option value="catalogue" name="altSearch">Catalogue</option>
-     <option value="website" name="altSearch">Website</option>
-</select>
-
-</div><!--close button div-->
-</div><!--form row-->
-</form>
-</div><!--close centre-->
-
-</div><!--overlay-->
-</section><!--close search section-->
-
-<section class="features content mt-2">
-
-<!--Three column layout with event calendar, hours and locations and another feature-->
-
-<div class="container">
-  <div class="row">
-
-    <div class="feature upcoming-events col-sm">
-      <h2 class="mt-4">Upcoming Events</h2>
-      {% event_highlights %}
-    </div>
-
-    <div class="feature col-sm">
-      <h2 class="mt-4">{{ page.feature_one_page }}</h2>
-      <a href="{{ page.feature_one_page.url }}">{% image page.feature_one_image class="img-fluid" original %}</a>
-      <p class="feature-text">{{ page.feature_one_text }}</p>
-      <a class="btn btn-feature" href="{{ page.feature_one_page.url }}">More ...</a>
-    </div>
-
-    <div class="feature col-sm">
-      <h2 class="mt-4">{{ page.feature_two_page }}</h2>
-      <a href="{{ page.feature_one_page.url }}">{% image page.feature_two_image class="img-fluid" original %}</a>
-      <p class="feature-text">{{ page.feature_two_text }}</p>
-      <a class="btn btn-feature" href="{{ page.feature_two_page.url }}">More ...</a>
-    </div>
-
-</section>
-
-<section class="content carousel mt-2">
+<div class="container-fluid">
 <div class="container">
 <div class="row">
+<div id="content-left" class="col-xl-9 col-lg-9 col-md-12 mt-2">
+<div class="row h-auto">
 
-<h2>Staff recommends</h2>
+{% include 'home/header_background.html' %}
 
+{% include 'home/features_first_row.html' %}
+            </div><!--row-->
+        </div><!--content left-->
+{% include 'home/featured_programs_lg_screen.html' %}
 
+</div><!--main row-->
+</div><!--container-->
+</div><!--container fluid-->
 
-<div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
-            <div class="MultiCarousel-inner">
+<div class="container-fluid">
+<div class="container">
+<div class="row">
+{% include 'home/featured_programs_regular_screen.html' %}
+</div><!--row -->
+</div><!--container-->
 
-              {% for books in page.staff_recommends.all %}
-                <div class="item">
-                    <div class="pad15">
-                        <a href="{{ books.catalogue_link }}" data-toggle="tooltip" data-placement="bottom" title="{{ books.book_cover.title }}">{% image books.book_cover class="img-fluid" original %}</a>
-                    </div>
-                </div>
-              {% endfor %}
+<div class="container mt-2 mb-2">
+<div class="row">
+{% include 'home/features_second_row.html' %}
+</div><!--row -->
+</div>
 
-            </div><!--multi carousel inner-->
-            <button class="btn btn-primary leftLst"><</button>
-            <button class="btn btn-primary rightLst">></button>
-</div><!--multicarousel-->
+<div class="container d-none d-md-block mt-2 mb-2">
+<div class="row">
+{% include 'home/staff_rec_lg_screen.html' %}
+</div><!--row -->
+</div><!--container -->
 
-</div><!--close row-->
-</div><!--close container-->
+<div class="container d-md-none mt-2 mb-2">
+<div class="row">    
+    {% include 'home/staff_rec_regular_screen.html' %}
+</div><!--row -->
+</div><!--container -->
+</div>
 
-
-
-</section>
-
-
+</div><!--row-->
+</div><!--container-->
 
 {% endblock %}

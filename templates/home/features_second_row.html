@@ -1,0 +1,29 @@
+{% load static wagtailcore_tags wagtailimages_tags %}
+<div class="col-xl-9 feature card">
+<div class="row">
+<div class="card col-xl-4">
+<h4 class="card-header mt-2">Latest Newsletter</h4>
+<div class="card-body">
+<a href="{{ page.newsletter_doc.url }}">{% image page.newsletter_image class="img-fluid" fill-520x320 %}</a>
+<p class="feature-text card-text">{{ page.newsletter_text }}</p>
+<a class="btn btn-primary btn-feature" href="{{ page.newsletter_doc.url }}">View it here</a>
+</div>
+</div>
+<div class="card col-xl-4">
+<h4 class="card-header mt-2">{% if page.feature_three_page == None %} {{ page.feature_three_doc }} {% else %} {{page.feature_three_page}} {% endif %}</h4>
+<div class="card-body">
+<a href="{% if page.feature_three_page == None %} {{ page.feature_three_doc.url }} {% else %} {{page.feature_three_page.url}} {% endif %}">{% image page.feature_three_image class="img-fluid" fill-520x320 %}</a>
+<p class="feature-text card-text">{{ page.feature_three_text }}</p>
+<a class="btn btn-primary btn-feature" href="{% if page.feature_three_page == None %} {{ page.feature_three_doc.url }} {% else %} {{page.feature_three_page.url}} {% endif %}">More ...</a>
+</div><!--card body-->
+</div>
+<div class="card col-xl-4">
+<h4 class="card-header mt-2">{% if page.feature_four_page == None %} {{ page.feature_four_doc }} {% else %} {{page.feature_four_page}} {% endif %}</h4>
+<div class="card-body">
+<a href="{% if page.feature_four_page == None %} {{ page.feature_four_doc.url }} {% else %} {{page.feature_four_page.url}} {% endif %}">{% image page.feature_four_image class="img-fluid" fill-520x320 %}</a>
+<p class="feature-text card-text">{{ page.feature_four_text }}</p>
+<a class="btn btn-primary btn-feature" href="{% if page.feature_four_page == None %} {{ page.feature_four_doc.url }} {% else %} {{page.feature_four_page.url}} {% endif %}">More ...</a>
+</div><!--card body-->
+</div>
+</div>
+</div>

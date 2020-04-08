@@ -1,0 +1,35 @@
+{% load static wagtailcore_tags wagtailimages_tags %}
+<div id="staffRecommendsMobile" class="col-xl-9 feature carousel slide card">
+<h4 class="card-header mt-2">Staff Recommends</h4>
+<!--Carousel Wrapper-->
+<div id="staffRecommendsOneItem" class="carousel slide carousel-multi-item" data-ride="carousel">
+<!--Controls-->
+<div class="controls-top">
+<a class="btn-floating" href="#staffRecommendsOneItem" data-slide="prev"><i class="fa fa-lg fa-chevron-left"></i></a>
+<a class="btn-floating" href="#staffRecommendsOneItem" data-slide="next"><i class="fa fa-lg fa-chevron-right"></i></a>
+</div>
+<!--/.Controls-->
+<!--Slides-->
+<div class="carousel-inner" role="listbox">
+{% for books in page.staff_recommends.all %}
+<div class="carousel-item {% if forloop.first %}active {% endif %}">
+<div class="row">
+<div class="col-sm-12">
+<div class="card mt-2 ml-2 mr-2">
+<div class="card-img-top mt-2">
+<a href="{{ books.catalogue_link }}">{% image books.book_cover class="img-fluid" fill-220x325 %}</a>
+</div>
+<div class="card-body">
+<!--<div class="card-subtitle mb-2"><a href="#">{{ books.get_read_watch_listen_display }}</a></div>-->
+<div class="card-title mt-2"><a href="{{ books.catalogue_link }}">{{ books.book_cover.title }}</a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+<!--/.Slides-->
+</div>
+<!--/.Carousel Wrapper-->
+</div><!--staff recommends mobile-->
