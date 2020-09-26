@@ -1,7 +1,7 @@
  {% load static wagtailcore_tags wagtailimages_tags %}
     <div id="feature-programs-horizontal" class="MultiCarousel feature d-lg-none" data-items="1,2,3,4" data-slide="1" id="MultiCarousel"  data-interval="1000"><!--d-lg-none-->
       <div class="header">
-        <h4 class="mt-2">Featured Programs</h4>
+        <h4 class="mt-2">{{ page.program_slider_title }}</h4>
       </div>
             <div class="MultiCarousel-inner">
               {% for program_slider in page.program_slider.all %}
